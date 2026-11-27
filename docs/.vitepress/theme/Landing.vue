@@ -185,7 +185,7 @@ const docs = [
         Linux, are planned next, and later formats of keyboard tools such as Keyman.
       </p>
       <p class="links">
-        <a href="https://github.com/yakbd/yakbd-cli/releases">Releases</a>
+        <a href="https://github.com/yakbd/yakbd-cli/releases/latest">Releases</a>
         <a href="https://github.com/yakbd/yakbd-cli">yakbd-cli on GitHub</a>
         <a href="https://github.com/yakbd/kbl-spec">kbl-spec on GitHub</a>
         <a href="https://yakbd.github.io/kbl-spec/schema/0.1/kbl.schema.json">JSON Schema</a>

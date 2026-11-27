@@ -36,7 +36,7 @@ function rewriteHref(href, repo, path) {
     sources.renamed?.[r] ? `https://github.com/${org}/${sources.renamed[r]}` : m);
   // Release links always go to the latest release, never to a tag (and a file "at a tag" to main).
   href = href
-    .replace(/^(https:\/\/github\.com\/yakbd\/[^/]+\/releases)\/tag\/[^/#?]+\/?$/, "$1/latest")
+    .replace(/^(https:\/\/github\.com\/yakbd\/[^/]+\/releases)(?:\/tag\/[^/#?]+)?\/?$/, "$1/latest")
     .replace(/^(https:\/\/github\.com\/yakbd\/[^/]+\/(?:blob|tree))\/v[0-9][^/]*\//, "$1/main/");
   // GitHub links to a page this site carries, on main, go to the site page.
   const gh = href.match(/^https:\/\/github\.com\/yakbd\/([^/]+)\/blob\/main\/([^#?]+)(#.*)?$/);

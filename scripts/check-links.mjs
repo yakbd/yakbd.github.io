@@ -48,7 +48,10 @@ for (const [file, { links }] of pages) {
   for (const href of links) {
     if (href === "" || href.startsWith("mailto:")) continue;
     // Releases are linked as releases/latest (downloads as releases/latest/download/<name>), never by tag.
-    if (/\/releases\/tag\/|\/releases\/download\/|\/(blob|tree)\/v[0-9]/.test(href)) {
+    if (
+      /\/releases\/tag\/|\/releases\/download\/|\/(blob|tree)\/v[0-9]/.test(href) ||
+      /^https:\/\/github\.com\/yakbd\/[^/]+\/releases\/?([#?].*)?$/.test(href)
+    ) {
       errors.push(`${file}: link pinned to a release tag, use releases/latest: ${href}`);
     }
     if (/^[a-z][a-z0-9+.-]*:/i.test(href) || href.startsWith("//")) {

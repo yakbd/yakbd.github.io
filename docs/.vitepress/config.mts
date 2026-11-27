@@ -41,7 +41,7 @@ export default defineConfig({
       { text: "Guide", link: "/guide/", activeMatch: "^/guide/" },
       { text: "Editor", link: "/editor/", activeMatch: "^/editor/" },
       { text: "Format", link: "/spec/", activeMatch: "^/spec/" },
-      { text: "Download", link: "https://github.com/yakbd/yakbd-cli/releases" },
+      { text: "Download", link: "https://github.com/yakbd/yakbd-cli/releases/latest" },
     ],
     sidebar: {
       "/guide/": [
@@ -58,7 +58,7 @@ export default defineConfig({
         {
           text: "More on GitHub",
           items: [
-            { text: "Releases", link: "https://github.com/yakbd/yakbd-cli/releases" },
+            { text: "Releases", link: "https://github.com/yakbd/yakbd-cli/releases/latest" },
             { text: "Installers and their command line", link: "https://github.com/yakbd/yakbd-cli/blob/main/docs/installer-cli.md" },
             { text: "All tool documentation", link: "https://github.com/yakbd/yakbd-cli/tree/main/docs" },
             { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
