@@ -19,7 +19,7 @@ const docs = [
   { href: "/guide/migrating-from-msklc", title: "Moving from MSKLC", text: "From a .klc file to an installed layout, without ever losing a working one." },
   { href: "/guide/recover-a-layout", title: "Recovering a layout", text: "Lost the source? Read the installed DLL back into an editable file." },
   { href: "/guide/windows-security-prompts", title: "Windows security prompts", text: "SmartScreen, Smart App Control and UAC: what you will see and why." },
-  { href: "/editor/", title: "YAKBD Editor", text: "A desktop editor for .kbl.json files. A prototype: no release yet, build it from source." },
+  { href: "https://github.com/yakbd/kbl-gui/releases/latest", title: "YAKBD Editor", text: "Download the desktop editor for .kbl.json files, for Windows, macOS and Linux." },
   { href: "/spec/windows", title: "Windows builds", text: "The default rules a Windows build follows, and how to pin them into a file." },
   { href: "/spec/", title: "The .kbl.json format", text: "What a layout file holds, with an example, and how to validate one." },
   { href: "/spec/format", title: "Specification", text: "Every field, the loss kinds, and the rules a schema cannot check." },
@@ -149,7 +149,7 @@ const docs = [
       <h2 id="docs-title">Start here</h2>
       <ul class="doc-list">
         <li v-for="d in docs" :key="d.href">
-          <a :href="withBase(d.href)">
+          <a :href="d.href.startsWith('/') ? withBase(d.href) : d.href">
             <span class="doc-title">{{ d.title }}</span>
             <span class="doc-text">{{ d.text }}</span>
             <svg class="doc-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h13m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>

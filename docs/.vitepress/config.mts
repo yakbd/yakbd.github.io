@@ -20,6 +20,20 @@ export default defineConfig({
   markdown: {
     // Heading ids as GitHub makes them, so links written for GitHub ("SPEC.md#173-loss-kinds") work here too.
     anchor: { slugify: (s: string) => slug(s) },
+    // The pages fetched from the other repositories are plain Markdown: a "<file>" in their text is text, not HTML.
+    config(md) {
+      const fetched = new Set(sources.pages.map((p) => p.out));
+      const parse = md.parse.bind(md);
+      md.parse = (src, env) => {
+        if (!fetched.has(env?.relativePath)) return parse(src, env);
+        md.set({ html: false });
+        try {
+          return parse(src, env);
+        } finally {
+          md.set({ html: true });
+        }
+      };
+    },
   },
   themeConfig: {
     logo: { src: "/icon.png", alt: "" },
