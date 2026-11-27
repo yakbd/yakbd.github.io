@@ -4,7 +4,7 @@
     "yakbd-cli": "94cb5ebd39e6412ecb6cd8e0007c7cf18d2757e3",
     "kbl-spec": "ba415d58535b13ec1a702d7b16f94d6bd2730223",
     ".github": "e813b855e554332996d0030ca74b9425f8be90aa",
-    "kbl-gui": "d8e07b85aa2cbbc42eb403c9790c14c7ac3ab13e"
+    "kbl-gui": "8627dfd28820993ccf6ecb1388e32bad3746254e"
   },
   "pages": [
     { "repo": "yakbd-cli", "path": "README.md", "out": "guide/index.md", "title": "Install and quick start" },
