@@ -4,16 +4,17 @@
     "yakbd-cli": "94cb5ebd39e6412ecb6cd8e0007c7cf18d2757e3",
     "kbl-spec": "ba415d58535b13ec1a702d7b16f94d6bd2730223",
     ".github": "e813b855e554332996d0030ca74b9425f8be90aa",
-    "kbl-gui": "8627dfd28820993ccf6ecb1388e32bad3746254e"
+    "yakbd-gui": "8627dfd28820993ccf6ecb1388e32bad3746254e"
   },
+  "renamed": { "kbl-gui": "yakbd-gui" },
   "pages": [
     { "repo": "yakbd-cli", "path": "README.md", "out": "guide/index.md", "title": "Install and quick start" },
     { "repo": "yakbd-cli", "path": "docs/migrating-from-msklc.md", "out": "guide/migrating-from-msklc.md", "title": "Moving from MSKLC" },
     { "repo": "yakbd-cli", "path": "docs/recover-a-layout.md", "out": "guide/recover-a-layout.md", "title": "Recovering a layout" },
     { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
     { "repo": "yakbd-cli", "path": "docs/code-signing-policy.md", "out": "guide/code-signing-policy.md", "title": "Code signing policy" },
-    { "repo": "kbl-gui", "path": "README.md", "out": "editor/index.md", "title": "YAKBD Editor" },
-    { "repo": "kbl-gui", "path": "VERIFIED.md", "out": "editor/verified.md", "title": "What is verified" },
+    { "repo": "yakbd-gui", "path": "README.md", "out": "editor/index.md", "title": "YAKBD Editor" },
+    { "repo": "yakbd-gui", "path": "VERIFIED.md", "out": "editor/verified.md", "title": "What is verified" },
     { "repo": "kbl-spec", "path": "README.md", "out": "spec/index.md", "title": "The .kbl.json format" },
     { "repo": "kbl-spec", "path": "SPEC.md", "out": "spec/format.md", "title": "Specification" },
     { "repo": "kbl-spec", "path": "targets/windows.md", "out": "spec/windows.md", "title": "Windows builds" },

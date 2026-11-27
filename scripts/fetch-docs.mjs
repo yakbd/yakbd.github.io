@@ -31,6 +31,9 @@ async function get(repo, path) {
 }
 
 function rewriteHref(href, repo, path) {
+  // Links to a repository under its old name go to its new name ("renamed" in sources.json).
+  href = href.replace(/^https:\/\/github\.com\/yakbd\/([^/#?]+)/, (m, r) =>
+    sources.renamed?.[r] ? `https://github.com/${org}/${sources.renamed[r]}` : m);
   // GitHub links to a page this site carries, on main, go to the site page.
   const gh = href.match(/^https:\/\/github\.com\/yakbd\/([^/]+)\/blob\/main\/([^#?]+)(#.*)?$/);
   if (gh) {

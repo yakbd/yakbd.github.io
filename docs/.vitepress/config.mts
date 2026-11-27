@@ -76,7 +76,7 @@ export default defineConfig({
         {
           text: "More on GitHub",
           items: [
-            { text: "Repository", link: "https://github.com/yakbd/kbl-gui" },
+            { text: "Repository", link: "https://github.com/yakbd/yakbd-gui" },
             { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
           ],
         },
