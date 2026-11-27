@@ -9,7 +9,7 @@ export default defineConfig({
   title: "YAKBD",
   titleTemplate: ":title · YAKBD",
   description:
-    "YAKBD: a free, open-source keyboard-layout format and tool. Convert MSKLC .klc files and CLDR keyboards, and build Windows layout DLLs and installers.",
+    "YAKBD is an open-source keyboard layout designer: design a layout once in an open format and build native, installable layouts. Windows today; macOS and Linux planned next.",
   cleanUrls: true,
   lastUpdated: false,
   head: [

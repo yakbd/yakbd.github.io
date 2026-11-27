@@ -30,17 +30,23 @@ const docs = [
   <div class="landing">
     <section class="hero">
       <div class="hero-text">
-        <h1>Your keyboard layout, built for every Windows PC.</h1>
+        <h1>Design a keyboard layout once. Install it everywhere.</h1>
         <p class="lead">
-          YAKBD is a free, open-source file format and command-line tool for keyboard layouts. Bring a layout from
-          Microsoft Keyboard Layout Creator (MSKLC) or Unicode CLDR, get one installer for x64, x86 and ARM64
-          Windows, and read a report of everything that changed on the way.
+          YAKBD is an open-source keyboard layout designer. You design a layout once, in an open file format, and
+          YAKBD turns it into native, installable layouts for each operating system and keyboard tool, and converts
+          existing layouts from their formats. A custom or minority-language layout can be made, shared and kept up
+          to date by anyone, without depending on a single vendor's tool.
+        </p>
+        <p class="today">
+          <strong>Today YAKBD supports Windows:</strong> it reads MSKLC <code>.klc</code> files, CLDR keyboard XML
+          and installed layout DLLs, and builds native layouts with one installer for x64, x86 and ARM64. macOS and
+          Linux are planned next, and later keyboard tools such as Keyman.
         </p>
         <div class="actions">
           <a class="btn primary" :href="withBase('/guide/')">Install yakbd</a>
           <a class="btn" :href="withBase('/guide/migrating-from-msklc')">Moving from MSKLC</a>
         </div>
-        <p class="meta">Runs on Windows, Linux and macOS · MIT-0 licence · preview release</p>
+        <p class="meta">The tool and editor run on Windows, Linux and macOS · MIT-0 licence · preview release</p>
       </div>
 
       <figure class="keyfig" aria-labelledby="keyfig-caption">
@@ -76,8 +82,8 @@ const docs = [
     <section class="flow" aria-labelledby="flow-title">
       <h2 id="flow-title">One file in the middle</h2>
       <p class="section-lead">
-        yakbd reads the layouts you already have into a <code>.kbl.json</code> file, and builds everything Windows
-        needs from that file. You can edit the file, keep it in version control, and convert it back.
+        yakbd reads the layouts you already have into one <code>.kbl.json</code> file, and builds a native layout
+        for each target from that file. You can edit the file, keep it in version control, and convert it back.
       </p>
       <ol class="flow-grid">
         <li class="col">
@@ -93,18 +99,29 @@ const docs = [
         </li>
         <li class="col hub">
           <h3><code>my-layout.kbl.json</code></h3>
-          <p>Every key on every layer, dead keys, and the exact choices a Windows build makes. Choices you leave out
-          follow documented default rules.</p>
+          <p>Every key on every layer, dead keys, and for each target the exact choices its build makes. Choices you
+          leave out follow documented default rules.</p>
         </li>
         <li class="arrow" aria-hidden="true">
           <svg viewBox="0 0 48 24" width="48" height="24"><path d="M2 12h40m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
         </li>
         <li class="col">
-          <h3>What Windows gets</h3>
-          <ul>
-            <li>Layout <strong>DLLs</strong> for x64, x86 and ARM64</li>
-            <li>One <strong>installer</strong> that picks the right ones</li>
-            <li>A <strong>report</strong> of every loss and default</li>
+          <h3>What each platform gets</h3>
+          <ul class="targets">
+            <li class="target">
+              <span class="target-name"><strong>Windows</strong> <span class="tag now">today</span></span>
+              <span class="target-text">Layout DLLs for x64, x86 and ARM64, one installer, and a report of every
+              loss and default</span>
+            </li>
+            <li class="target planned">
+              <span class="target-name">macOS <span class="tag">planned</span></span>
+            </li>
+            <li class="target planned">
+              <span class="target-name">Linux (XKB) <span class="tag">planned</span></span>
+            </li>
+            <li class="target planned">
+              <span class="target-name">Keyman and other keyboard tools <span class="tag">planned</span></span>
+            </li>
           </ul>
         </li>
       </ol>
@@ -126,7 +143,7 @@ const docs = [
           </div>
           <div>
             <dt>Every loss is reported.</dt>
-            <dd>When a format or Windows cannot hold part of a layout, the report says exactly what was dropped or
+            <dd>When a format or a platform cannot hold part of a layout, the report says exactly what was dropped or
             changed, and your file says whether that is an error, a warning or fine.</dd>
           </div>
           <div>
@@ -159,12 +176,13 @@ const docs = [
     </section>
 
     <section class="status" aria-labelledby="status-title">
-      <h2 id="status-title">A preview, tested on Windows</h2>
+      <h2 id="status-title">A preview: Windows today, more platforms next</h2>
       <p>
         Commands, options and the format may still change before 1.0. Layouts built by yakbd have been tested in
         Windows 10 and Windows 11 virtual machines (x64 and x86): they load, type as expected, and install, upgrade
-        and uninstall cleanly. ARM64 support is tested in emulation only. Windows is the only build target so far; other operating systems may follow, chosen by what users
-        ask for.
+        and uninstall cleanly. ARM64 support is tested in emulation only.
+        Windows is the only build target so far. The official formats of other operating systems, such as macOS and
+        Linux, are planned next, and later formats of keyboard tools such as Keyman.
       </p>
       <p class="links">
         <a href="https://github.com/yakbd/yakbd-cli/releases">Releases</a>
@@ -262,6 +280,18 @@ a {
   background: var(--vp-button-brand-hover-bg);
   border-color: var(--vp-button-brand-hover-bg);
   color: var(--vp-button-brand-hover-text);
+}
+.today {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  max-width: 36em;
+  margin: -12px 0 32px;
+  padding-left: 14px;
+  border-left: 1px solid var(--vp-c-border);
+}
+.today strong {
+  color: var(--vp-c-text-1);
 }
 .meta {
   margin: 20px 0 0;
@@ -431,6 +461,49 @@ section + section {
 }
 .flow-grid .col li strong {
   color: var(--vp-c-text-1);
+}
+.flow-grid .targets {
+  gap: 14px;
+}
+.target {
+  display: grid;
+  gap: 4px;
+}
+.target-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--vp-c-text-1);
+}
+.target-text {
+  font-size: 0.9375rem;
+}
+.tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  border: 1px dashed var(--vp-c-text-3);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+.tag.now {
+  border: 1px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+.flow-grid .col .target.planned::before {
+  background: transparent;
+  border: 1.5px solid var(--vp-c-text-3);
+  width: 5px;
+  height: 5px;
+}
+.target.planned .target-name {
+  color: var(--vp-c-text-2);
 }
 .flow-grid .hub {
   padding: 24px;

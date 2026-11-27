@@ -1,6 +1,6 @@
 ---
 layout: page
-title: YAKBD, keyboard layouts for Windows from one file
+title: "YAKBD: design a keyboard layout once, install it everywhere"
 titleTemplate: false
 ---
 
