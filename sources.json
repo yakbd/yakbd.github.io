@@ -1,10 +1,10 @@
 {
   "$comment": "The documentation pages of this site come from these repositories at these exact commits. To update a page, change it in its repository, then change the commit here. scripts/fetch-docs.mjs reads this file.",
   "repos": {
-    "yakbd-cli": "4720a71d0e82b646714d6b569e19136271d69f38",
+    "yakbd-cli": "b79a8a6eff864b9be3e1e73f860335c71827dde3",
     "kbl-spec": "2bc476257c02d9240dec7791d646d8ced9a02f97",
     ".github": "e813b855e554332996d0030ca74b9425f8be90aa",
-    "yakbd-gui": "57030422c85a36f2bc9845e24366bb50fd6255b6"
+    "yakbd-gui": "663c1e184a6f02ef16bd48fed97c28b85b0891a8"
   },
   "renamed": { "kbl-gui": "yakbd-gui" },
   "pages": [
