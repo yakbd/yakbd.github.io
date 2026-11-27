@@ -4,4 +4,5 @@ docs/.vitepress/cache/
 # Fetched at build time from the repositories pinned in sources.json (scripts/fetch-docs.mjs)
 docs/guide/
 docs/spec/
+docs/editor/
 docs/public/icon.png

@@ -1,10 +1,11 @@
 # yakbd.github.io
 
-The website of YAKBD at https://yakbd.github.io/: a landing page and the user documentation of the `yakbd` tool
-and the `.kbl.json` format.
+The website of YAKBD at https://yakbd.github.io/: a landing page and the user documentation of the `yakbd` tool,
+the YAKBD Editor and the `.kbl.json` format.
 
 The documentation pages are not kept here. They live in their repositories,
-[`yakbd/yakbd-cli`](https://github.com/yakbd/yakbd-cli) and [`yakbd/kbl-spec`](https://github.com/yakbd/kbl-spec),
+[`yakbd/yakbd-cli`](https://github.com/yakbd/yakbd-cli), [`yakbd/kbl-gui`](https://github.com/yakbd/kbl-gui) and
+[`yakbd/kbl-spec`](https://github.com/yakbd/kbl-spec),
 and the build fetches them at the exact commits pinned in [`sources.json`](sources.json). To change a page, change
 it in its repository, then update the commit in `sources.json`. Only the landing page
 ([`docs/.vitepress/theme/Landing.vue`](docs/.vitepress/theme/Landing.vue)) and the site configuration live here.

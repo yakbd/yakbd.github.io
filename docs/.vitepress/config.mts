@@ -25,6 +25,7 @@ export default defineConfig({
     logo: { src: "/icon.png", alt: "" },
     nav: [
       { text: "Guide", link: "/guide/", activeMatch: "^/guide/" },
+      { text: "Editor", link: "/editor/", activeMatch: "^/editor/" },
       { text: "Format", link: "/spec/", activeMatch: "^/spec/" },
       { text: "Download", link: "https://github.com/yakbd/yakbd-cli/releases" },
     ],
@@ -46,6 +47,22 @@ export default defineConfig({
             { text: "Releases", link: "https://github.com/yakbd/yakbd-cli/releases" },
             { text: "Installers and their command line", link: "https://github.com/yakbd/yakbd-cli/blob/main/docs/installer-cli.md" },
             { text: "All tool documentation", link: "https://github.com/yakbd/yakbd-cli/tree/main/docs" },
+            { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
+          ],
+        },
+      ],
+      "/editor/": [
+        {
+          text: "Editor",
+          items: [
+            { text: title("editor/index.md"), link: "/editor/" },
+            { text: title("editor/verified.md"), link: "/editor/verified" },
+          ],
+        },
+        {
+          text: "More on GitHub",
+          items: [
+            { text: "Repository", link: "https://github.com/yakbd/kbl-gui" },
             { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
           ],
         },
