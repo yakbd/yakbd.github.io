@@ -1,0 +1,22 @@
+{
+  "$comment": "The documentation pages of this site come from these repositories at these exact commits. To update a page, change it in its repository, then change the commit here. scripts/fetch-docs.mjs reads this file.",
+  "repos": {
+    "yakbd-cli": "94cb5ebd39e6412ecb6cd8e0007c7cf18d2757e3",
+    "kbl-spec": "ba415d58535b13ec1a702d7b16f94d6bd2730223",
+    ".github": "e813b855e554332996d0030ca74b9425f8be90aa"
+  },
+  "pages": [
+    { "repo": "yakbd-cli", "path": "README.md", "out": "guide/index.md", "title": "Install and quick start" },
+    { "repo": "yakbd-cli", "path": "docs/migrating-from-msklc.md", "out": "guide/migrating-from-msklc.md", "title": "Moving from MSKLC" },
+    { "repo": "yakbd-cli", "path": "docs/recover-a-layout.md", "out": "guide/recover-a-layout.md", "title": "Recovering a layout" },
+    { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
+    { "repo": "yakbd-cli", "path": "docs/code-signing-policy.md", "out": "guide/code-signing-policy.md", "title": "Code signing policy" },
+    { "repo": "kbl-spec", "path": "README.md", "out": "spec/index.md", "title": "The .kbl.json format" },
+    { "repo": "kbl-spec", "path": "SPEC.md", "out": "spec/format.md", "title": "Specification" },
+    { "repo": "kbl-spec", "path": "targets/windows.md", "out": "spec/windows.md", "title": "Windows builds" },
+    { "repo": "kbl-spec", "path": "COMPATIBILITY.md", "out": "spec/compatibility.md", "title": "Compatibility" }
+  ],
+  "files": [
+    { "repo": ".github", "path": "icon.png", "out": "public/icon.png" }
+  ]
+}

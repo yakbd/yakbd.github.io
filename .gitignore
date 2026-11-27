@@ -1,0 +1,7 @@
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+# Fetched at build time from the repositories pinned in sources.json (scripts/fetch-docs.mjs)
+docs/guide/
+docs/spec/
+docs/public/icon.png
