@@ -193,8 +193,8 @@ const docs = [
         and uninstall cleanly. ARM64 support is tested in emulation only. macOS layout bundles have been installed,
         selected and typed by script on GitHub's macOS 15 and 26 runners (Apple silicon); the steps in System Settings
         and Intel Macs have not been tested yet. On Linux, layouts installed the way yakbd installs them have been
-        typed under X11, weston, sway, KWin and mutter in containers; dead keys in GTK 4 programs on Wayland need an
-        input method, and a full GNOME session and real keyboards have not been tested yet. Formats of keyboard tools
+        typed under X11, weston, sway, KWin and mutter in containers; dead keys in GTK 4 programs on sway, KDE and mutter
+        need an input method, and a full GNOME session and real keyboards have not been tested yet. Formats of keyboard tools
         such as Keyman come later.
       </p>
       <p class="links">
