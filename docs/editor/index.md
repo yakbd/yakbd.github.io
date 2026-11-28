@@ -40,7 +40,7 @@ inside the editor: the editor never makes a platform decision itself.
 
 | | Windows | macOS | Linux |
 |---|---|---|---|
-| runs on | Windows 10 and 11, x64 and ARM64 | macOS 14.4 or later, Apple silicon and Intel | x86-64 with glibc 2.35 or later (Ubuntu 22.04+, Debian 12+, Fedora) |
+| runs on | Windows, x64 and ARM64 | macOS 14.4 or later, Apple silicon and Intel | x86-64 with glibc 2.35 or later (Ubuntu 22.04+, Debian 12+, Fedora) |
 | builds for | Windows, macOS and Linux | Windows, macOS and Linux | Windows, macOS and Linux |
 | style | Fluent (WinUI 3) | native macOS controls, the system menu bar | Fusion, with the desktop's theme where it has one |
 | light and dark | follows Windows | follows macOS | follows the desktop; View › Appearance forces one |

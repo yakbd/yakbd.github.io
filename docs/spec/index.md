@@ -43,7 +43,8 @@ shortened (`…` marks what is left out):
     "id": "en-t-k0-kblmin",
     "name": "Minimal QWERTY (example)",
     "version": "0.1.0",
-    "license": "MIT-0"
+    "license": "MIT-0",
+    …
   },
   "positions": {
     "Escape": { "scanCode": "01", "name": "Esc" },
