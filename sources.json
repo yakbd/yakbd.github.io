@@ -1,9 +1,9 @@
 {
   "$comment": "The documentation pages of this site come from these repositories at these exact commits. To update a page, change it in its repository, then change the commit here. scripts/fetch-docs.mjs reads this file.",
   "repos": {
-    "yakbd-cli": "dfee7e731ab464ed687b2483537124fa60459f6d",
-    "kbl-spec": "23050382ee543bf6b6b2af546e8cb7def5b2d146",
-    ".github": "e813b855e554332996d0030ca74b9425f8be90aa",
+    "yakbd-cli": "ae73d05ba89c523af3e8db5314c2e675a6cd44d5",
+    "kbl-spec": "b4a057e61172bcee116a241f0c436b0651656ccf",
+    ".github": "a4a9521fa37e4938a7a96deedb5d95a4b36e1c87",
     "yakbd-gui": "e3f20d68bd14e43f4cac605932e3161ca4b6d873"
   },
   "renamed": { "kbl-gui": "yakbd-gui" },
@@ -12,6 +12,7 @@
     { "repo": "yakbd-cli", "path": "docs/migrating-from-msklc.md", "out": "guide/migrating-from-msklc.md", "title": "Moving from MSKLC" },
     { "repo": "yakbd-cli", "path": "docs/recover-a-layout.md", "out": "guide/recover-a-layout.md", "title": "Recovering a layout" },
     { "repo": "yakbd-cli", "path": "docs/macos.md", "out": "guide/macos.md", "title": "macOS" },
+    { "repo": "yakbd-cli", "path": "docs/linux.md", "out": "guide/linux.md", "title": "Linux" },
     { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
     { "repo": "yakbd-cli", "path": "docs/code-signing-policy.md", "out": "guide/code-signing-policy.md", "title": "Code signing policy" },
     { "repo": "yakbd-gui", "path": "README.md", "out": "editor/index.md", "title": "YAKBD Editor" },

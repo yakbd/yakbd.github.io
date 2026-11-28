@@ -20,6 +20,7 @@ const docs = [
   { href: "/guide/recover-a-layout", title: "Recovering a layout", text: "Lost the source? Read the installed DLL back into an editable file." },
   { href: "/guide/windows-security-prompts", title: "Windows security prompts", text: "SmartScreen, Smart App Control and UAC: what you will see and why." },
   { href: "/guide/macos", title: "macOS", text: "Build a layout bundle, install it in Keyboard Layouts and select it in the input menu." },
+  { href: "/guide/linux", title: "Linux", text: "Build an archive, run its install script, and pick the layout in GNOME, KDE, sway or X11." },
   { href: "https://github.com/yakbd/yakbd-gui/releases/latest", title: "YAKBD Editor", text: "Download the desktop editor for .kbl.json files, for Windows, macOS and Linux." },
   { href: "/spec/windows", title: "Windows builds", text: "The default rules a Windows build follows, and how to pin them into a file." },
   { href: "/spec/", title: "The .kbl.json format", text: "What a layout file holds, with an example, and how to validate one." },
@@ -39,10 +40,11 @@ const docs = [
           to date by anyone, without depending on a single vendor's tool.
         </p>
         <p class="today">
-          <strong>Today YAKBD supports Windows and macOS.</strong> On Windows it reads MSKLC <code>.klc</code>
+          <strong>Today YAKBD supports Windows, macOS and Linux.</strong> On Windows it reads MSKLC <code>.klc</code>
           files, CLDR keyboard XML and installed layout DLLs, and builds native layouts with one installer for x64, x86
           and ARM64. For macOS it reads and writes <code>.keylayout</code> files and builds a layout bundle, on any
-          computer. Linux is next, and later keyboard tools such as Keyman.
+          computer. For Linux it reads and writes XKB files and builds a layout with an install script that
+          needs no root, for Wayland and X11. Keyboard tools such as Keyman come later.
         </p>
         <div class="actions">
           <a class="btn primary" :href="withBase('/guide/')">Install yakbd</a>
@@ -95,6 +97,7 @@ const docs = [
             <li><strong>CLDR</strong> Keyboard 3.0 XML</li>
             <li>An installed <strong>layout DLL</strong>, when the source is lost</li>
             <li><strong>.keylayout</strong> file from macOS</li>
+            <li><strong>XKB</strong> symbols and Compose files from Linux</li>
           </ul>
         </li>
         <li class="arrow" aria-hidden="true">
@@ -121,8 +124,10 @@ const docs = [
               <span class="target-text">A layout bundle and a zip with install steps, built on any computer, and the
               same report</span>
             </li>
-            <li class="target planned">
-              <span class="target-name">Linux (XKB) <span class="tag">planned</span></span>
+            <li class="target">
+              <span class="target-name"><strong>Linux (XKB)</strong> <span class="tag now">today</span></span>
+              <span class="target-text">XKB symbols and Compose files with an install script for your own user, for
+              Wayland and X11, and the same report</span>
             </li>
             <li class="target planned">
               <span class="target-name">Keyman and other keyboard tools <span class="tag">planned</span></span>
@@ -181,13 +186,16 @@ const docs = [
     </section>
 
     <section class="status" aria-labelledby="status-title">
-      <h2 id="status-title">A preview: Windows and macOS today, more platforms next</h2>
+      <h2 id="status-title">A preview: Windows, macOS and Linux today</h2>
       <p>
         Commands, options and the format may still change before 1.0. Layouts built by yakbd have been tested in
         Windows 10 and Windows 11 virtual machines (x64 and x86): they load, type as expected, and install, upgrade
         and uninstall cleanly. ARM64 support is tested in emulation only. macOS layout bundles have been installed,
         selected and typed by script on GitHub's macOS 15 and 26 runners (Apple silicon); the steps in System Settings
-        and Intel Macs have not been tested yet. Linux is next, and later formats of keyboard tools such as Keyman.
+        and Intel Macs have not been tested yet. On Linux, layouts installed the way yakbd installs them have been
+        typed under X11, weston, sway, KWin and mutter in containers; dead keys in GTK 4 programs on Wayland need an
+        input method, and a full GNOME session and real keyboards have not been tested yet. Formats of keyboard tools
+        such as Keyman come later.
       </p>
       <p class="links">
         <a href="https://github.com/yakbd/yakbd-cli/releases/latest">Releases</a>
