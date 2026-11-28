@@ -1,8 +1,8 @@
 {
   "$comment": "The documentation pages of this site come from these repositories at these exact commits. To update a page, change it in its repository, then change the commit here. scripts/fetch-docs.mjs reads this file.",
   "repos": {
-    "yakbd-cli": "5b216185d4a6e75bb6f12d6648cffae486822026",
-    "kbl-spec": "2bc476257c02d9240dec7791d646d8ced9a02f97",
+    "yakbd-cli": "dfee7e731ab464ed687b2483537124fa60459f6d",
+    "kbl-spec": "23050382ee543bf6b6b2af546e8cb7def5b2d146",
     ".github": "e813b855e554332996d0030ca74b9425f8be90aa",
     "yakbd-gui": "e3f20d68bd14e43f4cac605932e3161ca4b6d873"
   },
@@ -11,6 +11,7 @@
     { "repo": "yakbd-cli", "path": "README.md", "out": "guide/index.md", "title": "Install and quick start" },
     { "repo": "yakbd-cli", "path": "docs/migrating-from-msklc.md", "out": "guide/migrating-from-msklc.md", "title": "Moving from MSKLC" },
     { "repo": "yakbd-cli", "path": "docs/recover-a-layout.md", "out": "guide/recover-a-layout.md", "title": "Recovering a layout" },
+    { "repo": "yakbd-cli", "path": "docs/macos.md", "out": "guide/macos.md", "title": "macOS" },
     { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
     { "repo": "yakbd-cli", "path": "docs/code-signing-policy.md", "out": "guide/code-signing-policy.md", "title": "Code signing policy" },
     { "repo": "yakbd-gui", "path": "README.md", "out": "editor/index.md", "title": "YAKBD Editor" },
@@ -18,6 +19,8 @@
     { "repo": "kbl-spec", "path": "README.md", "out": "spec/index.md", "title": "The .kbl.json format" },
     { "repo": "kbl-spec", "path": "SPEC.md", "out": "spec/format.md", "title": "Specification" },
     { "repo": "kbl-spec", "path": "targets/windows.md", "out": "spec/windows.md", "title": "Windows builds" },
+    { "repo": "kbl-spec", "path": "targets/macos.md", "out": "spec/macos.md", "title": "macOS builds" },
+    { "repo": "kbl-spec", "path": "targets/xkb.md", "out": "spec/xkb.md", "title": "Linux (XKB) builds" },
     { "repo": "kbl-spec", "path": "COMPATIBILITY.md", "out": "spec/compatibility.md", "title": "Compatibility" }
   ],
   "files": [

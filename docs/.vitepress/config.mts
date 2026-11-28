@@ -9,7 +9,7 @@ export default defineConfig({
   title: "YAKBD",
   titleTemplate: ":title · YAKBD",
   description:
-    "YAKBD is an open-source keyboard layout designer: design a layout once in an open format and build native, installable layouts. Windows today; macOS and Linux planned next.",
+    "YAKBD is an open-source keyboard layout designer: design a layout once in an open format and build native, installable layouts. Windows and macOS today; Linux next.",
   cleanUrls: true,
   lastUpdated: false,
   head: [
@@ -51,6 +51,7 @@ export default defineConfig({
             { text: title("guide/index.md"), link: "/guide/" },
             { text: title("guide/migrating-from-msklc.md"), link: "/guide/migrating-from-msklc" },
             { text: title("guide/recover-a-layout.md"), link: "/guide/recover-a-layout" },
+            { text: title("guide/macos.md"), link: "/guide/macos" },
             { text: title("guide/windows-security-prompts.md"), link: "/guide/windows-security-prompts" },
             { text: title("guide/code-signing-policy.md"), link: "/guide/code-signing-policy" },
           ],
@@ -88,6 +89,8 @@ export default defineConfig({
             { text: title("spec/index.md"), link: "/spec/" },
             { text: title("spec/format.md"), link: "/spec/format" },
             { text: title("spec/windows.md"), link: "/spec/windows" },
+            { text: title("spec/macos.md"), link: "/spec/macos" },
+            { text: title("spec/xkb.md"), link: "/spec/xkb" },
             { text: title("spec/compatibility.md"), link: "/spec/compatibility" },
           ],
         },
