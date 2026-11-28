@@ -14,17 +14,23 @@ const active = ref<(typeof layers)[number]["id"]>("altgr");
 const example =
   "https://github.com/yakbd/kbl-spec/blob/main/examples/latin-altgr-deadkeys.kbl.json";
 
+const platforms = [
+  { name: "Windows", state: "today", href: "/guide/windows", text: "Layout DLLs for x64, x86 and ARM64 in one installer that upgrades in place. Reads .klc, CLDR XML and installed DLLs." },
+  { name: "macOS", state: "today", href: "/guide/macos", text: "A .keylayout file in a layout bundle, and a zip with install steps. Reads and writes .keylayout." },
+  { name: "Linux", state: "today", href: "/guide/linux", text: "XKB symbols and Compose files with an install script for your own user, for Wayland and X11." },
+  { name: "Android", state: "planned" },
+  { name: "iOS", state: "planned" },
+  { name: "ChromeOS", state: "planned" },
+  { name: "Keyman", state: "planned" },
+];
+
 const docs = [
-  { href: "/guide/", title: "Install and quick start", text: "Download yakbd, or build it with Go, and make your first installer." },
+  { href: "/guide/", title: "Install", text: "The yakbd tool and the editor, for Windows, macOS and Linux." },
+  { href: "/guide/quick-start", title: "Quick start", text: "From a layout file to an installed layout on each platform." },
   { href: "/guide/migrating-from-msklc", title: "Moving from MSKLC", text: "From a .klc file to an installed layout, without ever losing a working one." },
-  { href: "/guide/recover-a-layout", title: "Recovering a layout", text: "Lost the source? Read the installed DLL back into an editable file." },
-  { href: "/guide/windows-security-prompts", title: "Windows security prompts", text: "SmartScreen, Smart App Control and UAC: what you will see and why." },
-  { href: "/guide/macos", title: "macOS", text: "Build a layout bundle, install it in Keyboard Layouts and select it in the input menu." },
-  { href: "/guide/linux", title: "Linux", text: "Build an archive, run its install script, and pick the layout in GNOME, KDE, sway or X11." },
-  { href: "https://github.com/yakbd/yakbd-gui/releases/latest", title: "YAKBD Editor", text: "Download the desktop editor for .kbl.json files, for Windows, macOS and Linux." },
-  { href: "/spec/windows", title: "Windows builds", text: "The default rules a Windows build follows, and how to pin them into a file." },
+  { href: "/editor/", title: "YAKBD Editor", text: "Edit a layout key by key, check it and build it, on any desktop." },
   { href: "/spec/", title: "The .kbl.json format", text: "What a layout file holds, with an example, and how to validate one." },
-  { href: "/spec/format", title: "Specification", text: "Every field, the loss kinds, and the rules a schema cannot check." },
+  { href: "/cli/", title: "CLI reference", text: "Every command, the targets, and the report file for programs." },
 ];
 </script>
 
@@ -40,17 +46,13 @@ const docs = [
           to date by anyone, without depending on a single vendor's tool.
         </p>
         <p class="today">
-          <strong>Today YAKBD supports Windows, macOS and Linux.</strong> On Windows it reads MSKLC <code>.klc</code>
-          files, CLDR keyboard XML and installed layout DLLs, and builds native layouts with one installer for x64, x86
-          and ARM64. For macOS it reads and writes <code>.keylayout</code> files and builds a layout bundle, on any
-          computer. For Linux it reads and writes XKB files and builds a layout with an install script that
-          needs no root, for Wayland and X11. Keyboard tools such as Keyman come later.
+          <strong>Today: Windows, macOS and Linux.</strong> Planned: Android, iOS, ChromeOS and Keyman.
         </p>
         <div class="actions">
-          <a class="btn primary" :href="withBase('/guide/')">Install yakbd</a>
-          <a class="btn" :href="withBase('/guide/migrating-from-msklc')">Moving from MSKLC</a>
+          <a class="btn primary" :href="withBase('/guide/')">Install</a>
+          <a class="btn" :href="withBase('/guide/quick-start')">Quick start</a>
         </div>
-        <p class="meta">The tool and editor run on Windows, Linux and macOS · MIT-0 licence · preview release</p>
+        <p class="meta">Runs on Windows, macOS and Linux · free and open source (MIT-0) · preview</p>
       </div>
 
       <figure class="keyfig" aria-labelledby="keyfig-caption">
@@ -113,28 +115,34 @@ const docs = [
         </li>
         <li class="col">
           <h3>What each platform gets</h3>
-          <ul class="targets">
-            <li class="target">
-              <span class="target-name"><strong>Windows</strong> <span class="tag now">today</span></span>
-              <span class="target-text">Layout DLLs for x64, x86 and ARM64, one installer, and a report of every
-              loss and default</span>
-            </li>
-            <li class="target">
-              <span class="target-name"><strong>macOS</strong> <span class="tag now">today</span></span>
-              <span class="target-text">A layout bundle and a zip with install steps, built on any computer, and the
-              same report</span>
-            </li>
-            <li class="target">
-              <span class="target-name"><strong>Linux (XKB)</strong> <span class="tag now">today</span></span>
-              <span class="target-text">XKB symbols and Compose files with an install script for your own user, for
-              Wayland and X11, and the same report</span>
-            </li>
-            <li class="target planned">
-              <span class="target-name">Keyman and other keyboard tools <span class="tag">planned</span></span>
-            </li>
+          <ul>
+            <li>A native <strong>Windows</strong> layout and its installer</li>
+            <li>A <strong>macOS</strong> layout bundle</li>
+            <li>A <strong>Linux</strong> XKB layout with an install script</li>
+            <li>A <strong>report</strong> of every loss and every default used</li>
           </ul>
         </li>
       </ol>
+    </section>
+
+    <section class="platforms" aria-labelledby="platforms-title">
+      <h2 id="platforms-title">Platforms</h2>
+      <p class="section-lead">
+        One file builds for every platform yakbd knows, on any computer: a Linux PC builds a Windows installer, a
+        Windows PC a macOS bundle.
+      </p>
+      <ul class="platform-grid">
+        <li v-for="p in platforms" :key="p.name" :class="['platform', p.state]">
+          <component :is="p.href ? 'a' : 'div'" class="platform-card" :href="p.href ? withBase(p.href) : undefined">
+            <span class="platform-head">
+              <strong>{{ p.name }}</strong>
+              <span :class="['tag', { now: p.state === 'today' }]">{{ p.state }}</span>
+            </span>
+            <span v-if="p.text" class="platform-text">{{ p.text }}</span>
+            <span v-if="p.href" class="platform-link">{{ p.name }} guide</span>
+          </component>
+        </li>
+      </ul>
     </section>
 
     <section class="points" aria-labelledby="points-title">
@@ -186,23 +194,19 @@ const docs = [
     </section>
 
     <section class="status" aria-labelledby="status-title">
-      <h2 id="status-title">A preview: Windows, macOS and Linux today</h2>
+      <h2 id="status-title">A preview</h2>
       <p>
-        Commands, options and the format may still change before 1.0. Layouts built by yakbd have been tested in
-        Windows 10 and Windows 11 virtual machines (x64 and x86): they load, type as expected, and install, upgrade
-        and uninstall cleanly. ARM64 support is tested in emulation only. macOS layout bundles have been installed,
-        selected and typed by script on GitHub's macOS 15 and 26 runners (Apple silicon); the steps in System Settings
-        and Intel Macs have not been tested yet. On Linux, layouts installed the way yakbd installs them have been
-        typed under X11, weston, sway, KWin and mutter in containers; dead keys in GTK 4 programs on sway, KDE and mutter
-        need an input method, and a full GNOME session and real keyboards have not been tested yet. Formats of keyboard tools
-        such as Keyman come later.
+        Commands, options and the format may still change before 1.0. Windows layouts are tested in Windows 10 and 11
+        virtual machines, macOS bundles on GitHub's Mac runners, and Linux layouts under X11, weston, sway, KWin and
+        mutter in containers. What is tested and what is not yet:
+        <a :href="withBase('/spec/status')">Status</a> and <a :href="withBase('/editor/verified')">What is verified</a>.
       </p>
       <p class="links">
-        <a href="https://github.com/yakbd/yakbd-cli/releases/latest">Releases</a>
-        <a href="https://github.com/yakbd/yakbd-cli">yakbd-cli on GitHub</a>
-        <a href="https://github.com/yakbd/kbl-spec">kbl-spec on GitHub</a>
-        <a href="https://yakbd.github.io/kbl-spec/schema/0.1/kbl.schema.json">JSON Schema</a>
-        <a href="https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md">Contributing</a>
+        <a :href="withBase('/releases')">What's new</a>
+        <a href="https://github.com/yakbd/yakbd-cli/releases/latest">Download yakbd</a>
+        <a href="https://github.com/yakbd/yakbd-gui/releases/latest">Download the editor</a>
+        <a href="https://github.com/yakbd">YAKBD on GitHub</a>
+        <a :href="withBase('/contributing')">Contributing</a>
       </p>
     </section>
   </div>
@@ -428,6 +432,7 @@ section + section {
   border-top: 1px solid var(--vp-c-divider);
 }
 .flow,
+.platforms,
 .points,
 .docs,
 .status {
@@ -475,23 +480,6 @@ section + section {
 .flow-grid .col li strong {
   color: var(--vp-c-text-1);
 }
-.flow-grid .targets {
-  gap: 14px;
-}
-.target {
-  display: grid;
-  gap: 4px;
-}
-.target-name {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  color: var(--vp-c-text-1);
-}
-.target-text {
-  font-size: 0.9375rem;
-}
 .tag {
   display: inline-block;
   padding: 1px 8px;
@@ -508,15 +496,6 @@ section + section {
   border: 1px solid var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
-}
-.flow-grid .col .target.planned::before {
-  background: transparent;
-  border: 1.5px solid var(--vp-c-text-3);
-  width: 5px;
-  height: 5px;
-}
-.target.planned .target-name {
-  color: var(--vp-c-text-2);
 }
 .flow-grid .hub {
   padding: 24px;
@@ -655,7 +634,72 @@ section + section {
   text-underline-offset: 4px;
 }
 
+.platform-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+.platform.today {
+  grid-column: span 4;
+}
+.platform.planned {
+  grid-column: span 3;
+}
+.platform-card {
+  height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+a.platform-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+}
+.platform-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 1.0625rem;
+}
+.platform-text {
+  color: var(--vp-c-text-2);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.platform-link {
+  margin-top: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+.platform.planned .platform-card {
+  background: transparent;
+  border-style: dashed;
+  padding: 14px 22px;
+}
+.platform.planned .platform-head strong {
+  color: var(--vp-c-text-2);
+  font-weight: 600;
+}
+
 @media (max-width: 860px) {
+  .platform.today {
+    grid-column: span 12;
+  }
+  .platform.planned {
+    grid-column: span 6;
+  }
   .hero,
   .points-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -674,7 +718,8 @@ section + section {
 @media (prefers-reduced-motion: reduce) {
   .legend,
   .snippet .row,
-  .doc-arrow {
+  .doc-arrow,
+  .platform-card {
     transition: none;
   }
 }

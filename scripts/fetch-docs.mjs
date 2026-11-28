@@ -10,6 +10,12 @@ const root = posix.join(dirname(fileURLToPath(import.meta.url)).replaceAll("\\",
 const sources = JSON.parse(await readFile(posix.join(root, "sources.json"), "utf8"));
 const org = "yakbd";
 
+// Every fetched file is ignored by git, one line each in .gitignore: docs/guide/, docs/editor/ and docs/spec/ also
+// hold pages written for this site, so a folder-wide ignore would hide those from git.
+const ignored = new Set((await readFile(posix.join(root, ".gitignore"), "utf8")).split("\n").map((l) => l.trim()));
+const unlisted = [...sources.pages, ...sources.files].map((p) => `docs/${p.out}`).filter((o) => !ignored.has(o));
+if (unlisted.length) throw new Error(`add to .gitignore (fetched files are not committed): ${unlisted.join(", ")}`);
+
 const raw = (repo, path) => `https://raw.githubusercontent.com/${org}/${repo}/${sources.repos[repo]}/${path}`;
 const blob = (repo, path) =>
   `https://github.com/${org}/${repo}/${path.endsWith("/") || path === "" ? "tree" : "blob"}/${sources.repos[repo]}/${path}`;

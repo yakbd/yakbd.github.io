@@ -2,14 +2,19 @@ import { defineConfig } from "vitepress";
 import { slug } from "github-slugger";
 import sources from "../../sources.json" with { type: "json" };
 
-const title = (out: string) => sources.pages.find((p) => p.out === out)!.title;
+// A sidebar entry for a page fetched from another repository (sources.json "pages"): its title and route.
+function page(out: string, text?: string) {
+  const p = sources.pages.find((p) => p.out === out);
+  if (!p) throw new Error(`config.mts: ${out} is not a page in sources.json`);
+  return { text: text ?? p.title, link: "/" + out.replace(/(^|\/)index\.md$/, "$1").replace(/\.md$/, "") };
+}
 
 export default defineConfig({
   lang: "en",
   title: "YAKBD",
   titleTemplate: ":title · YAKBD",
   description:
-    "YAKBD is an open-source keyboard layout designer: design a layout once in an open format and build native, installable layouts. Windows, macOS and Linux today; keyboard tools such as Keyman later.",
+    "YAKBD is an open-source keyboard layout designer: design a layout once in an open format and build native, installable layouts for Windows, macOS and Linux. Android, iOS, ChromeOS and Keyman are planned.",
   cleanUrls: true,
   lastUpdated: false,
   head: [
@@ -41,29 +46,35 @@ export default defineConfig({
       { text: "Guide", link: "/guide/", activeMatch: "^/guide/" },
       { text: "Editor", link: "/editor/", activeMatch: "^/editor/" },
       { text: "Format", link: "/spec/", activeMatch: "^/spec/" },
-      { text: "Download", link: "https://github.com/yakbd/yakbd-cli/releases/latest" },
+      { text: "CLI reference", link: "/cli/", activeMatch: "^/cli/" },
+      { text: "What's new", link: "/releases" },
     ],
     sidebar: {
       "/guide/": [
         {
-          text: "Guide",
+          text: "Get started",
           items: [
-            { text: title("guide/index.md"), link: "/guide/" },
-            { text: title("guide/migrating-from-msklc.md"), link: "/guide/migrating-from-msklc" },
-            { text: title("guide/recover-a-layout.md"), link: "/guide/recover-a-layout" },
-            { text: title("guide/macos.md"), link: "/guide/macos" },
-            { text: title("guide/linux.md"), link: "/guide/linux" },
-            { text: title("guide/windows-security-prompts.md"), link: "/guide/windows-security-prompts" },
-            { text: title("guide/code-signing-policy.md"), link: "/guide/code-signing-policy" },
+            { text: "Install", link: "/guide/" },
+            { text: "Quick start", link: "/guide/quick-start" },
           ],
         },
         {
-          text: "More on GitHub",
+          text: "Windows",
           items: [
-            { text: "Releases", link: "https://github.com/yakbd/yakbd-cli/releases/latest" },
-            { text: "Installers and their command line", link: "https://github.com/yakbd/yakbd-cli/blob/main/docs/installer-cli.md" },
-            { text: "All tool documentation", link: "https://github.com/yakbd/yakbd-cli/tree/main/docs" },
-            { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
+            { text: "Windows", link: "/guide/windows" },
+            page("guide/migrating-from-msklc.md"),
+            page("guide/recover-a-layout.md"),
+            page("guide/windows-security-prompts.md"),
+          ],
+        },
+        { text: "macOS", items: [page("guide/macos.md")] },
+        { text: "Linux", items: [page("guide/linux.md")] },
+        {
+          text: "More",
+          items: [
+            page("guide/code-signing-policy.md"),
+            { text: "What's new", link: "/releases" },
+            { text: "Contributing", link: "/contributing" },
           ],
         },
       ],
@@ -71,38 +82,83 @@ export default defineConfig({
         {
           text: "Editor",
           items: [
-            { text: title("editor/index.md"), link: "/editor/" },
-            { text: title("editor/verified.md"), link: "/editor/verified" },
+            { text: "YAKBD Editor", link: "/editor/" },
+            { text: "Install", link: "/guide/#the-editor" },
+            page("editor/targets.md"),
+            page("editor/building.md"),
+            page("editor/verified.md"),
+            page("editor/code-signing-policy.md"),
           ],
         },
         {
-          text: "More on GitHub",
-          items: [
-            { text: "Repository", link: "https://github.com/yakbd/yakbd-gui" },
-            { text: "Contributing", link: "https://github.com/yakbd/.github/blob/main/CONTRIBUTING.md" },
-          ],
+          text: "On GitHub",
+          items: [{ text: "yakbd-gui", link: "https://github.com/yakbd/yakbd-gui" }],
         },
       ],
       "/spec/": [
         {
           text: "Format",
           items: [
-            { text: title("spec/index.md"), link: "/spec/" },
-            { text: title("spec/format.md"), link: "/spec/format" },
-            { text: title("spec/windows.md"), link: "/spec/windows" },
-            { text: title("spec/macos.md"), link: "/spec/macos" },
-            { text: title("spec/xkb.md"), link: "/spec/xkb" },
-            { text: title("spec/compatibility.md"), link: "/spec/compatibility" },
+            { text: "Overview", link: "/spec/" },
+            page("spec/format.md"),
+            page("spec/compatibility.md"),
+            page("spec/status.md"),
+            page("spec/decisions.md"),
           ],
         },
         {
-          text: "Schema and more",
+          text: "Targets",
           items: [
-            { text: "JSON Schema", link: "https://yakbd.github.io/kbl-spec/schema/0.1/kbl.schema.json" },
-            { text: "Examples", link: "https://github.com/yakbd/kbl-spec/tree/main/examples" },
-            { text: "Design decisions", link: "https://github.com/yakbd/kbl-spec/blob/main/DECISIONS.md" },
-            { text: "Repository", link: "https://github.com/yakbd/kbl-spec" },
+            page("spec/windows.md"),
+            page("spec/windows-install.md"),
+            page("spec/macos.md"),
+            page("spec/xkb.md"),
           ],
+        },
+        {
+          text: "Coverage",
+          items: [
+            page("spec/coverage/cldr-keyboard3.md", "CLDR Keyboard 3.0"),
+            page("spec/coverage/windows.md", "Windows"),
+            page("spec/coverage/macos.md", "macOS"),
+            page("spec/coverage/xkb.md", "Linux (XKB)"),
+          ],
+        },
+        {
+          text: "On GitHub",
+          items: [
+            { text: "JSON Schema 0.1", link: "https://yakbd.github.io/kbl-spec/schema/0.1/kbl.schema.json" },
+            { text: "JSON Schema 0.2", link: "https://yakbd.github.io/kbl-spec/schema/0.2/kbl.schema.json" },
+            { text: "Examples", link: "https://github.com/yakbd/kbl-spec/tree/main/examples" },
+            { text: "kbl-spec", link: "https://github.com/yakbd/kbl-spec" },
+          ],
+        },
+      ],
+      "/cli/": [
+        {
+          text: "CLI reference",
+          items: [
+            page("cli/index.md"),
+            page("cli/targets.md"),
+            page("cli/report-file.md"),
+          ],
+        },
+        {
+          text: "Windows",
+          items: [
+            page("cli/installer.md"),
+            page("cli/installer-cli.md"),
+            page("cli/cldr.md"),
+            page("cli/dll-import.md"),
+          ],
+        },
+        {
+          text: "Releases",
+          items: [page("cli/release.md"), { text: "What's new", link: "/releases" }],
+        },
+        {
+          text: "On GitHub",
+          items: [{ text: "yakbd-cli", link: "https://github.com/yakbd/yakbd-cli" }],
         },
       ],
     },

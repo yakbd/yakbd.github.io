@@ -1,8 +1,39 @@
 node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
-# Fetched at build time from the repositories pinned in sources.json (scripts/fetch-docs.mjs)
-docs/guide/
-docs/spec/
-docs/editor/
+# Fetched at build time from the repositories pinned in sources.json (scripts/fetch-docs.mjs). One line per page:
+# docs/guide/, docs/editor/ and docs/spec/ also hold pages written here, which must stay tracked.
+docs/guide/migrating-from-msklc.md
+docs/guide/recover-a-layout.md
+docs/guide/windows-security-prompts.md
+docs/guide/macos.md
+docs/guide/linux.md
+docs/guide/code-signing-policy.md
+docs/cli/index.md
+docs/cli/targets.md
+docs/cli/report-file.md
+docs/cli/installer.md
+docs/cli/installer-cli.md
+docs/cli/cldr.md
+docs/cli/dll-import.md
+docs/cli/release.md
+docs/editor/targets.md
+docs/editor/building.md
+docs/editor/verified.md
+docs/editor/code-signing-policy.md
+docs/spec/format.md
+docs/spec/windows.md
+docs/spec/windows-install.md
+docs/spec/macos.md
+docs/spec/xkb.md
+docs/spec/coverage/cldr-keyboard3.md
+docs/spec/coverage/windows.md
+docs/spec/coverage/macos.md
+docs/spec/coverage/xkb.md
+docs/spec/compatibility.md
+docs/spec/status.md
+docs/spec/decisions.md
+docs/contributing.md
 docs/public/icon.png
+docs/public/images/editor-light.png
+docs/public/images/editor-dark.png

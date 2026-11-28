@@ -107,3 +107,19 @@
   color: var(--vp-c-text-1);
   font-size: inherit;
 }
+
+/* Screenshots with a light and a dark version (site pages: <img class="only-light"> + <img class="only-dark">) */
+.vp-doc .shot {
+  margin: 24px 0;
+}
+.vp-doc .shot img {
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+}
+.only-dark,
+.dark .only-light {
+  display: none;
+}
+.dark .only-dark {
+  display: block;
+}

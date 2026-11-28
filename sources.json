@@ -1,30 +1,48 @@
 {
-  "$comment": "The documentation pages of this site come from these repositories at these exact commits. To update a page, change it in its repository, then change the commit here. scripts/fetch-docs.mjs reads this file.",
+  "$comment": "Reference pages of this site come from these repositories at these exact commits (scripts/fetch-docs.mjs). To update one, change it in its repository, then change the commit here. Guide pages written for this site live in docs/ instead; AGENTS.md says which is which.",
   "repos": {
-    "yakbd-cli": "d984bceb09ae2046820be09b1d2149bde1adc16c",
-    "kbl-spec": "b4a057e61172bcee116a241f0c436b0651656ccf",
-    ".github": "a4a9521fa37e4938a7a96deedb5d95a4b36e1c87",
-    "yakbd-gui": "e3f20d68bd14e43f4cac605932e3161ca4b6d873"
+    "yakbd-cli": "cce8b3e3f070816844e6c211e05bb48d6517cf0f",
+    "kbl-spec": "f404398d5fbb08e3122576206201bcf8aba91af8",
+    ".github": "921c7c19becb292f859aab0cd81a900d849c0859",
+    "yakbd-gui": "d437cb0a620f7ba841062c5e807df9b231db7c59"
   },
   "renamed": { "kbl-gui": "yakbd-gui" },
   "pages": [
-    { "repo": "yakbd-cli", "path": "README.md", "out": "guide/index.md", "title": "Install and quick start" },
     { "repo": "yakbd-cli", "path": "docs/migrating-from-msklc.md", "out": "guide/migrating-from-msklc.md", "title": "Moving from MSKLC" },
     { "repo": "yakbd-cli", "path": "docs/recover-a-layout.md", "out": "guide/recover-a-layout.md", "title": "Recovering a layout" },
+    { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
     { "repo": "yakbd-cli", "path": "docs/macos.md", "out": "guide/macos.md", "title": "macOS" },
     { "repo": "yakbd-cli", "path": "docs/linux.md", "out": "guide/linux.md", "title": "Linux" },
-    { "repo": "yakbd-cli", "path": "docs/windows-security-prompts.md", "out": "guide/windows-security-prompts.md", "title": "Windows security prompts" },
     { "repo": "yakbd-cli", "path": "docs/code-signing-policy.md", "out": "guide/code-signing-policy.md", "title": "Code signing policy" },
-    { "repo": "yakbd-gui", "path": "README.md", "out": "editor/index.md", "title": "YAKBD Editor" },
+    { "repo": "yakbd-cli", "path": "docs/commands.md", "out": "cli/index.md", "title": "Commands" },
+    { "repo": "yakbd-cli", "path": "docs/targets.md", "out": "cli/targets.md", "title": "Targets" },
+    { "repo": "yakbd-cli", "path": "docs/report-file.md", "out": "cli/report-file.md", "title": "The report file" },
+    { "repo": "yakbd-cli", "path": "docs/installer.md", "out": "cli/installer.md", "title": "Windows installers" },
+    { "repo": "yakbd-cli", "path": "docs/installer-cli.md", "out": "cli/installer-cli.md", "title": "Installer command line" },
+    { "repo": "yakbd-cli", "path": "docs/cldr.md", "out": "cli/cldr.md", "title": "CLDR keyboards" },
+    { "repo": "yakbd-cli", "path": "docs/dll-import.md", "out": "cli/dll-import.md", "title": "Reading layout DLLs" },
+    { "repo": "yakbd-cli", "path": "docs/release.md", "out": "cli/release.md", "title": "Releases and checking a download" },
+    { "repo": "yakbd-gui", "path": "docs/targets.md", "out": "editor/targets.md", "title": "Targets in the editor" },
+    { "repo": "yakbd-gui", "path": "docs/building.md", "out": "editor/building.md", "title": "Building the editor" },
     { "repo": "yakbd-gui", "path": "VERIFIED.md", "out": "editor/verified.md", "title": "What is verified" },
-    { "repo": "kbl-spec", "path": "README.md", "out": "spec/index.md", "title": "The .kbl.json format" },
+    { "repo": "yakbd-gui", "path": "docs/code-signing-policy.md", "out": "editor/code-signing-policy.md", "title": "Code signing policy" },
     { "repo": "kbl-spec", "path": "SPEC.md", "out": "spec/format.md", "title": "Specification" },
     { "repo": "kbl-spec", "path": "targets/windows.md", "out": "spec/windows.md", "title": "Windows builds" },
+    { "repo": "kbl-spec", "path": "targets/windows-install.md", "out": "spec/windows-install.md", "title": "Windows installation" },
     { "repo": "kbl-spec", "path": "targets/macos.md", "out": "spec/macos.md", "title": "macOS builds" },
     { "repo": "kbl-spec", "path": "targets/xkb.md", "out": "spec/xkb.md", "title": "Linux (XKB) builds" },
-    { "repo": "kbl-spec", "path": "COMPATIBILITY.md", "out": "spec/compatibility.md", "title": "Compatibility" }
+    { "repo": "kbl-spec", "path": "coverage/cldr-keyboard3.md", "out": "spec/coverage/cldr-keyboard3.md", "title": "Coverage: CLDR Keyboard 3.0" },
+    { "repo": "kbl-spec", "path": "coverage/windows.md", "out": "spec/coverage/windows.md", "title": "Coverage: Windows" },
+    { "repo": "kbl-spec", "path": "coverage/macos.md", "out": "spec/coverage/macos.md", "title": "Coverage: macOS" },
+    { "repo": "kbl-spec", "path": "coverage/xkb.md", "out": "spec/coverage/xkb.md", "title": "Coverage: Linux (XKB)" },
+    { "repo": "kbl-spec", "path": "COMPATIBILITY.md", "out": "spec/compatibility.md", "title": "Compatibility" },
+    { "repo": "kbl-spec", "path": "STATUS.md", "out": "spec/status.md", "title": "Status and changelog" },
+    { "repo": "kbl-spec", "path": "DECISIONS.md", "out": "spec/decisions.md", "title": "Design decisions" },
+    { "repo": ".github", "path": "CONTRIBUTING.md", "out": "contributing.md", "title": "Contributing" }
   ],
   "files": [
-    { "repo": ".github", "path": "icon.png", "out": "public/icon.png" }
+    { "repo": ".github", "path": "icon.png", "out": "public/icon.png" },
+    { "repo": "yakbd-gui", "path": "docs/images/editor-light.png", "out": "public/images/editor-light.png" },
+    { "repo": "yakbd-gui", "path": "docs/images/editor-dark.png", "out": "public/images/editor-dark.png" }
   ]
 }
