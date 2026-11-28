@@ -3,7 +3,7 @@
   "repos": {
     "yakbd-cli": "cce8b3e3f070816844e6c211e05bb48d6517cf0f",
     "kbl-spec": "f404398d5fbb08e3122576206201bcf8aba91af8",
-    ".github": "921c7c19becb292f859aab0cd81a900d849c0859",
+    ".github": "ddcac74526b0b39c05027791ae2edddd58fdd5c0",
     "yakbd-gui": "d437cb0a620f7ba841062c5e807df9b231db7c59"
   },
   "renamed": { "kbl-gui": "yakbd-gui" },
