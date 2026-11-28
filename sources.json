@@ -1,8 +1,8 @@
 {
   "$comment": "Reference pages of this site come from these repositories at these exact commits (scripts/fetch-docs.mjs). To update one, change it in its repository, then change the commit here. Guide pages written for this site live in docs/ instead; AGENTS.md says which is which.",
   "repos": {
-    "yakbd-cli": "fc790321dea5627ca1d0a3462294e69558c90b89",
-    "kbl-spec": "bc8339702f683f084917245a2006e9b0fb126838",
+    "yakbd-cli": "f5a09764436fe60c9f0a79755ce6d3ddff309486",
+    "kbl-spec": "594fda0a6ea5979fc1818dd0c065deb766a04f20",
     ".github": "ddcac74526b0b39c05027791ae2edddd58fdd5c0",
     "yakbd-gui": "8ba30fd3f5fa52b22bcd8084af433ba7c7c3006c"
   },
