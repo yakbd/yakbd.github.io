@@ -38,8 +38,8 @@ From the [latest editor release](https://github.com/yakbd/yakbd-gui/releases/lat
 | your computer | download | then |
 |---|---|---|
 | Windows (x64, ARM64) | [`yakbd-gui-setup.exe`](https://github.com/yakbd/yakbd-gui/releases/latest/download/yakbd-gui-setup.exe) | Installs the editor and the `yakbd` tool together into `Program Files\YAKBD`. On 32-bit Windows only the tool can be installed. |
-| macOS 14.4 or later | `YAKBD-Editor-….dmg` | Drag **YAKBD Editor** to Applications. The app is not code-signed, so macOS blocks it the first time: open it once, then click **Open Anyway** in **System Settings › Privacy & Security**. |
-| Linux x86-64 (glibc 2.35 or later) | `YAKBD-Editor-…-x86_64.AppImage` | Make it executable and run it. It needs FUSE 2, or run it with `--appimage-extract-and-run`. |
+| macOS 14.4 or later | [`yakbd-gui.dmg`](https://github.com/yakbd/yakbd-gui/releases/latest/download/yakbd-gui.dmg) | Drag **YAKBD Editor** to Applications. The app is not code-signed, so macOS blocks it the first time: open it once, then click **Open Anyway** in **System Settings › Privacy & Security**. |
+| Linux x86-64 (glibc 2.35 or later) | [`yakbd-gui-x86_64.AppImage`](https://github.com/yakbd/yakbd-gui/releases/latest/download/yakbd-gui-x86_64.AppImage) | Make it executable and run it. It needs FUSE 2, or run it with `--appimage-extract-and-run`. |
 
 On a minimal Linux system the AppImage may miss a few libraries every desktop has. On Debian or Ubuntu:
 

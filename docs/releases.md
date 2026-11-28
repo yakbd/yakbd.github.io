@@ -9,9 +9,10 @@ One short entry per release, newest first. Downloads are always on the latest re
 [YAKBD Editor](https://github.com/yakbd/yakbd-gui/releases/latest); how to install them is in [Install](/guide/).
 The format's own changelog is [Status and changelog](/spec/status).
 
-## macOS and Linux
+## 0.2.0-preview.1 (2026-11-28): macOS and Linux
 
-yakbd, the YAKBD Editor and format version 0.2.
+yakbd and the YAKBD Editor 0.2.0-preview.1, format 0.2 (preview). The editor downloads are now
+`yakbd-gui.dmg` and `yakbd-gui-x86_64.AppImage`.
 
 - **macOS**: `yakbd installer -target macos` builds a layout bundle and a zip with install steps, on any computer.
   `.keylayout` files convert to and from `.kbl.json`. [macOS guide](/guide/macos)

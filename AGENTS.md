@@ -37,8 +37,8 @@ on every build. A footer on each fetched page names its source and commit.
 
 ## Re-pinning a repository (after it changed a fetched page)
 
-1. Take the full commit sha from that repository (`git -C <clone> rev-parse HEAD`; for kbl-spec before 0.2 is on
-   `main`, the head of `spec-0.2`).
+1. Take the full commit sha from that repository (`git -C <clone> rev-parse HEAD`; for kbl-spec the head
+   of `main`).
 2. Put it into `sources.json` → `repos.<name>`.
 3. `npm run build`. A heading that was renamed in the source breaks links to it; the check names each one.
 

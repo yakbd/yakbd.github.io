@@ -96,8 +96,8 @@ and `yakbd validate` checks them all.
 ## Versions
 
 - **0.1** (preview) holds the platform-neutral layout and the Windows target.
-- **0.2** adds the macOS target (`targets.macos`) and the Linux target (`targets.xkb`) and changes nothing in 0.1: a
-  0.1 file means the same in 0.2, and tools write 0.2 only for a file that uses something new.
+- **0.2** (preview) adds the macOS target (`targets.macos`) and the Linux target (`targets.xkb`) and changes nothing
+  in 0.1: a 0.1 file means the same in 0.2, and tools write 0.2 only for a file that uses something new.
 - Each later platform (Android, iOS, ChromeOS, Keyman are planned) comes with a new minor version.
 
 What stays stable and how changes are announced: [Compatibility](./compatibility). What is tested and the
