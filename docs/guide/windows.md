@@ -30,7 +30,7 @@ adds it to the input list of the user who runs it, upgrades an older version in 
 **Settings › Apps › Installed apps**. It takes `msiexec`'s switches and exit codes, so deployment tools can run it
 unattended: [Installer command line](/cli/installer-cli). What it changes on the PC: [Windows installers](/cli/installer).
 
-The installers are not signed yet, so SmartScreen or Smart App Control may stop them:
+The installers are not code-signed, so SmartScreen or Smart App Control may stop them:
 [Windows security prompts](./windows-security-prompts).
 
 ## More

@@ -28,7 +28,7 @@ Each archive holds `yakbd`, `LICENSE` and `NOTICE`. With Go 1.26 or later you ca
 go install github.com/yakbd/yakbd-cli/cmd/yakbd@latest
 ```
 
-Windows may warn about an installer that is not signed yet: [Windows security prompts](./windows-security-prompts)
+Releases are not code-signed, so Windows may warn about an installer: [Windows security prompts](./windows-security-prompts)
 explains each prompt. Uninstall from **Settings › Apps › Installed apps**, entry **YAKBD**.
 
 ## The editor
@@ -38,7 +38,7 @@ From the [latest editor release](https://github.com/yakbd/yakbd-gui/releases/lat
 | your computer | download | then |
 |---|---|---|
 | Windows (x64, ARM64) | [`yakbd-gui-setup.exe`](https://github.com/yakbd/yakbd-gui/releases/latest/download/yakbd-gui-setup.exe) | Installs the editor and the `yakbd` tool together into `Program Files\YAKBD`. On 32-bit Windows only the tool can be installed. |
-| macOS 14.4 or later | `YAKBD-Editor-….dmg` | Drag **YAKBD Editor** to Applications. The app is not signed yet, so macOS blocks it the first time: open it once, then click **Open Anyway** in **System Settings › Privacy & Security**. |
+| macOS 14.4 or later | `YAKBD-Editor-….dmg` | Drag **YAKBD Editor** to Applications. The app is not code-signed, so macOS blocks it the first time: open it once, then click **Open Anyway** in **System Settings › Privacy & Security**. |
 | Linux x86-64 (glibc 2.35 or later) | `YAKBD-Editor-…-x86_64.AppImage` | Make it executable and run it. It needs FUSE 2, or run it with `--appimage-extract-and-run`. |
 
 On a minimal Linux system the AppImage may miss a few libraries every desktop has. On Debian or Ubuntu:
@@ -65,8 +65,8 @@ gh attestation verify yakbd-cli-setup.exe -R yakbd/yakbd-cli
 gh attestation verify yakbd-gui-setup.exe -R yakbd/yakbd-gui
 ```
 
-[Releases and checking a download](/cli/release#3-how-to-check-a-downloaded-file) has the details, and the
-[code signing policy](./code-signing-policy) says when signing starts.
+[Releases and checking a download](/cli/release#3-how-to-check-a-downloaded-file) has the details;
+[Not code-signed](./code-signing-policy) says why releases carry no signature and what to click.
 
 ## Status
 

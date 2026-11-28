@@ -53,4 +53,4 @@ through the `yakbd` tool.
 
 - [Building the editor](./building) from source.
 - [What is verified](./verified): what was checked on which system, and what still needs a person.
-- [Code signing policy](./code-signing-policy).
+- [Not code-signed](./code-signing-policy): why, how to check a download, and what to click on Windows and macOS.
